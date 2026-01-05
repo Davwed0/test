@@ -1,9 +1,10 @@
 # Agentic RAG Chatbot for HK Tax Documents
 
-An intelligent RAG (Retrieval-Augmented Generation) chatbot that processes markdown documents (invoices, credit statements, rental agreements, etc.), extracts key values, and provides intelligent query capabilities with Hong Kong tax category classification.
+An intelligent **Agentic RAG** (Retrieval-Augmented Generation) chatbot powered by **PydanticAI** and **Langchain** that processes markdown documents (invoices, credit statements, rental agreements, etc.), extracts key values, and provides intelligent query capabilities with Hong Kong tax category classification.
 
 ## Features
 
+- 🤖 **Agentic Architecture**: Autonomous agent with tool-based reasoning using PydanticAI
 - 📄 **Markdown Document Processing**: Splits content by headings (#) for granular information retrieval
 - 🔍 **Key-Value Extraction**: Automatically extracts structured data from documents
 - 🧠 **Vector Embeddings**: Uses sentence transformers for semantic search
@@ -11,6 +12,7 @@ An intelligent RAG (Retrieval-Augmented Generation) chatbot that processes markd
 - 🏷️ **Tax Classification**: Classifies extracted values into HK tax deduction and income categories
 - 💬 **Interactive Chatbot**: Query documents using natural language
 - 🎯 **RAG Architecture**: Retrieves relevant context before generating answers
+- 🔧 **Tool-Based Agent**: Uses search, classification, and retrieval tools autonomously
 
 ## Hong Kong Tax Categories
 
@@ -52,15 +54,29 @@ cp .env.example .env
 
 **Note:** The system includes a simple built-in embedding model that works without internet access. For production use with better semantic search, you can enable sentence-transformers by ensuring internet access to huggingface.co.
 
-**LLM Integration (Optional):** For advanced answer generation, you can configure either:
+**LLM Integration (Required for Agentic Mode):** Configure an LLM provider for the agentic features:
 - **Ollama** (recommended for local use): Set `OLLAMA_BASE_URL` and `OLLAMA_MODEL` in `.env`
 - **OpenAI**: Set `OPENAI_API_KEY` in `.env`
 
 ## Quick Start
 
-### Using the Demo Script
+### Agentic RAG Demo (Recommended)
 
-The fastest way to see the system in action:
+Experience the full agentic capabilities with PydanticAI:
+
+```bash
+python demo_agentic.py
+```
+
+This demonstrates:
+1. Autonomous document search and retrieval
+2. Tool-based reasoning for tax classification
+3. LLM-powered answer generation with sources
+4. Multi-step agentic workflows
+
+### Using the Basic Demo Script
+
+For a simpler demo without LLM:
 
 ```bash
 python demo.py
@@ -88,12 +104,18 @@ Process documents from a custom directory:
 python main.py --process --directory /path/to/your/documents
 ```
 
-### Interactive Chat
+### Interactive Chat (Agentic Mode - Default)
 
-Start the interactive chatbot:
+Start the interactive agentic chatbot with PydanticAI:
 
 ```bash
-python main.py --chat
+python main.py --process --chat
+```
+
+Or use basic RAG mode (without agent/LLM):
+
+```bash
+python main.py --process --chat --basic
 ```
 
 ### Process and Chat
@@ -120,9 +142,12 @@ Once in chat mode, you can ask questions like:
 ```
 .
 ├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
+├── requirements.txt                   # Python dependencies (with PydanticAI & Langchain)
 ├── .env.example                       # Environment configuration template
-├── main.py                           # CLI entry point
+├── main.py                           # CLI entry point (supports agentic & basic modes)
+├── demo_agentic.py                   # Agentic RAG demo with PydanticAI
+├── demo.py                           # Basic RAG demo
+├── example.py                        # Comprehensive example
 ├── hk_tax_categories.md              # HK tax category definitions
 ├── sample_documents/                 # Sample markdown documents
 │   ├── invoice_001.md
@@ -136,10 +161,29 @@ Once in chat mode, you can ask questions like:
     ├── qdrant_store.py              # Qdrant vector store integration
     ├── tax_classifier.py            # HK tax category classifier
     ├── document_processor.py        # Document processing pipeline
-    └── rag_chatbot.py               # RAG chatbot agent
+    ├── agentic_rag.py               # Agentic RAG with PydanticAI (NEW)
+    └── rag_chatbot.py               # Basic RAG chatbot
 ```
 
 ## Architecture
+
+### Agentic RAG System (PydanticAI + Langchain)
+
+The system uses an **agentic architecture** where an LLM-powered agent autonomously uses tools to answer queries:
+
+#### Agent Tools
+
+1. **search_documents** - Semantic search for relevant document chunks
+2. **classify_tax_category** - Classify content into HK tax categories
+3. **get_tax_category_info** - Retrieve detailed tax category information
+
+#### Agentic Query Flow
+
+1. **User Query** → Agent receives question
+2. **Reasoning** → Agent decides which tools to use
+3. **Tool Execution** → Agent calls search_documents, classify_tax_category, etc.
+4. **Context Integration** → Agent synthesizes information from multiple sources
+5. **Answer Generation** → Agent produces structured response with sources and confidence
 
 ### Document Processing Pipeline
 
@@ -150,7 +194,7 @@ Once in chat mode, you can ask questions like:
 5. **Generate Embeddings**: Create vector embeddings using sentence transformers
 6. **Store in Qdrant**: Save embeddings with metadata for retrieval
 
-### RAG Query Flow
+### Basic RAG Query Flow (Non-Agentic)
 
 1. **User Query**: User asks a question in natural language
 2. **Query Embedding**: Convert question to vector embedding

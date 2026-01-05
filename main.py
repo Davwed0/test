@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from src.document_processor import DocumentProcessor
 from src.rag_chatbot import RAGChatbot
+from src.agentic_rag import AgenticRAG
 from src.config import Config
 
 
@@ -50,10 +51,15 @@ def process_documents(directory: str = None):
     print(f"  - Total documents: {store_info['points_count']}")
 
 
-def interactive_chat():
-    """Run interactive chat mode."""
+def interactive_chat(use_agentic: bool = True):
+    """Run interactive chat mode.
+    
+    Args:
+        use_agentic: If True, use AgenticRAG, otherwise use basic RAGChatbot
+    """
     print("=" * 60)
-    print("RAG Chatbot - Interactive Mode")
+    mode = "Agentic RAG" if use_agentic else "Basic RAG"
+    print(f"{mode} Chatbot - Interactive Mode")
     print("=" * 60)
     print("Ask questions about your tax documents.")
     print("Commands:")
@@ -62,7 +68,10 @@ def interactive_chat():
     print("  - 'quit' or 'exit' - Exit the chatbot")
     print("=" * 60)
     
-    chatbot = RAGChatbot()
+    if use_agentic:
+        chatbot = AgenticRAG()
+    else:
+        chatbot = RAGChatbot()
     
     while True:
         try:
@@ -96,21 +105,36 @@ def interactive_chat():
                 continue
             
             # Query the chatbot
-            response = chatbot.query(question, top_k=3)
-            
-            print(f"\n🤖 Bot: {response['answer']}")
-            
-            if response['sources']:
-                print(f"\n📚 Sources (Confidence: {response['confidence']:.2%}):")
-                for i, source in enumerate(response['sources'][:3], 1):
-                    print(f"  {i}. {source['filename']} - {source['heading']}")
-                    print(f"     Relevance: {source['relevance_score']:.2%}")
+            if use_agentic:
+                response = chatbot.query_sync(question)
+                print(f"\n🤖 Bot: {response.answer}")
+                
+                if response.tax_categories:
+                    print(f"\n🏷️  Tax Categories: {', '.join(response.tax_categories)}")
+                
+                if response.sources:
+                    print(f"\n📚 Sources:")
+                    for i, source in enumerate(response.sources[:3], 1):
+                        print(f"  {i}. {source}")
+                
+                print(f"\n✨ Confidence: {response.confidence}")
+            else:
+                response = chatbot.query(question, top_k=3)
+                print(f"\n🤖 Bot: {response['answer']}")
+                
+                if response['sources']:
+                    print(f"\n📚 Sources (Confidence: {response['confidence']:.2%}):")
+                    for i, source in enumerate(response['sources'][:3], 1):
+                        print(f"  {i}. {source['filename']} - {source['heading']}")
+                        print(f"     Relevance: {source['relevance_score']:.2%}")
         
         except KeyboardInterrupt:
             print("\n\nGoodbye!")
             break
         except Exception as e:
             print(f"Error: {e}")
+            import traceback
+            traceback.print_exc()
 
 
 def main():
@@ -152,6 +176,19 @@ Examples:
         help='Start interactive chat mode'
     )
     
+    parser.add_argument(
+        '--agentic',
+        action='store_true',
+        default=True,
+        help='Use Agentic RAG with PydanticAI (default: True)'
+    )
+    
+    parser.add_argument(
+        '--basic',
+        action='store_true',
+        help='Use basic RAG instead of Agentic RAG'
+    )
+    
     args = parser.parse_args()
     
     # If no arguments provided, show help
@@ -166,7 +203,8 @@ Examples:
     # Start chat if requested
     if args.chat:
         print()  # Add spacing
-        interactive_chat()
+        use_agentic = not args.basic  # Use agentic by default unless --basic is specified
+        interactive_chat(use_agentic=use_agentic)
 
 
 if __name__ == "__main__":
