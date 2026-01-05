@@ -50,7 +50,25 @@ cp .env.example .env
 # Edit .env with your settings
 ```
 
-## Usage
+**Note:** The system includes a simple built-in embedding model that works without internet access. For production use with better semantic search, you can enable sentence-transformers by ensuring internet access to huggingface.co.
+
+## Quick Start
+
+### Using the Demo Script
+
+The fastest way to see the system in action:
+
+```bash
+python demo.py
+```
+
+This will:
+1. Process all sample documents
+2. Build the vector index
+3. Run example queries showing:
+   - Document retrieval
+   - Key-value extraction
+   - Tax category classification
 
 ### Process Documents
 

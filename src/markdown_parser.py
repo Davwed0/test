@@ -64,8 +64,8 @@ class MarkdownParser:
             heading_match = self.heading_pattern.match(line)
             
             if heading_match:
-                # Save previous section if it has content
-                if current_section["content"].strip():
+                # Save previous section even if it has no content (just heading)
+                if current_section["heading"]:
                     sections.append(current_section.copy())
                 
                 # Start new section
@@ -80,7 +80,7 @@ class MarkdownParser:
                 current_section["content"] += line + "\n"
         
         # Add last section
-        if current_section["content"].strip():
+        if current_section["heading"]:
             sections.append(current_section)
         
         return sections

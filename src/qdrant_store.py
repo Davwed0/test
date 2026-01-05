@@ -112,20 +112,24 @@ class QdrantStore:
             if conditions:
                 search_filter = Filter(must=conditions)
         
-        results = self.client.search(
+        # Use query_points for the new API
+        results = self.client.query_points(
             collection_name=self.collection_name,
-            query_vector=query_vector,
+            query=query_vector,
             limit=limit,
             query_filter=search_filter
         )
         
+        # Handle response format
+        points = results.points if hasattr(results, 'points') else results
+        
         return [
             {
-                "id": result.id,
-                "score": result.score,
-                "document": result.payload
+                "id": point.id,
+                "score": point.score,
+                "document": point.payload
             }
-            for result in results
+            for point in points
         ]
     
     def delete_collection(self):
@@ -138,6 +142,6 @@ class QdrantStore:
         info = self.client.get_collection(collection_name=self.collection_name)
         return {
             "name": self.collection_name,
-            "vectors_count": info.vectors_count,
+            "vectors_count": getattr(info, 'vectors_count', info.points_count),
             "points_count": info.points_count
         }

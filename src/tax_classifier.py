@@ -36,12 +36,15 @@ class TaxCategoryClassifier:
         }
         
         current_type = None
-        current_category = None
         
         for section in sections:
             heading = section["heading"]
             content = section["content"]
             level = section["level"]
+            
+            # Level 1: Main heading (Hong Kong Tax Categories)
+            if level == 1:
+                continue
             
             # Level 2: Tax Deductions or Income Categories
             if level == 2:
@@ -53,7 +56,7 @@ class TaxCategoryClassifier:
             # Level 3: Specific category
             elif level == 3 and current_type:
                 current_category = heading
-                keywords = self._extract_keywords(content)
+                keywords = self._extract_keywords(heading + " " + content)
                 categories[current_type][current_category] = keywords
         
         return categories
