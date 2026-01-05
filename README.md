@@ -52,6 +52,10 @@ cp .env.example .env
 
 **Note:** The system includes a simple built-in embedding model that works without internet access. For production use with better semantic search, you can enable sentence-transformers by ensuring internet access to huggingface.co.
 
+**LLM Integration (Optional):** For advanced answer generation, you can configure either:
+- **Ollama** (recommended for local use): Set `OLLAMA_BASE_URL` and `OLLAMA_MODEL` in `.env`
+- **OpenAI**: Set `OPENAI_API_KEY` in `.env`
+
 ## Quick Start
 
 ### Using the Demo Script
@@ -168,8 +172,15 @@ QDRANT_USE_MEMORY=true  # Use in-memory mode (no server required)
 # Embedding Model
 EMBEDDING_MODEL=all-MiniLM-L6-v2
 
-# OpenAI API Key (optional, for advanced features)
+# LLM Configuration (optional, for advanced answer generation)
+# Choose either OpenAI or Ollama
+
+# OpenAI
 OPENAI_API_KEY=your_key_here
+
+# Ollama (recommended for local use)
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=llama3.2
 ```
 
 ## Sample Documents

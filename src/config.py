@@ -22,8 +22,10 @@ class Config:
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
     EMBEDDING_DIMENSION: int = 384  # for all-MiniLM-L6-v2
     
-    # OpenAI settings (optional)
+    # LLM settings (optional - for advanced answer generation)
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "llama3.2")
     
     # Document processing
     CHUNK_SIZE: int = 1000
