@@ -13,8 +13,14 @@ This environment contains:
 ## Getting Started
 
 ```bash
+# Using Docker Compose v2 (recommended)
+docker compose up -d
+
+# Or using Docker Compose v1
 docker-compose up -d
 ```
+
+**Note**: First startup may take 2-3 minutes as services initialize and start collecting data.
 
 ## Access Points
 
