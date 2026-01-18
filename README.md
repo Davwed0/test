@@ -19,7 +19,7 @@ This environment contains:
 docker compose up -d
 
 # Or using Docker Compose v1
-docker compose up -d
+docker-compose up -d
 ```
 
 **Note**: First startup may take 2-3 minutes as services initialize and start collecting data.

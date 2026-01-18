@@ -205,18 +205,6 @@ filter {
 }
 ```
 
-### Reduce Data Volume
-
-Edit `logstash/pipeline/wikimedia.conf`:
-```
-# Add filters to drop unwanted data
-filter {
-  if [bot] == true {
-    drop { }
-  }
-}
-```
-
 ## Data Management
 
 ### Export Data
