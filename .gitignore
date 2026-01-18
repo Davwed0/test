@@ -1,0 +1,24 @@
+# Elasticsearch data
+elasticsearch-data/
+
+# Logstash data
+logstash-data/
+
+# Kibana data
+kibana-data/
+
+# Docker volumes
+.docker/
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
