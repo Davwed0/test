@@ -145,8 +145,8 @@ Drag-and-drop visualization builder
 
 ### No Data Showing?
 - Check if indices exist: `curl http://localhost:9200/_cat/indices?v`
-- Verify Logstash is running: `docker-compose ps`
-- Check Logstash logs: `docker-compose logs logstash`
+- Verify Logstash is running: `docker compose ps`
+- Check Logstash logs: `docker compose logs logstash`
 - Adjust time range in Kibana (top right)
 
 ### Visualization Not Working?

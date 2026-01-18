@@ -32,7 +32,7 @@ output {
 }
 ```
 
-Then check logs: `docker-compose logs -f logstash`
+Then check logs: `docker compose logs -f logstash`
 
 ### 2. Add More Tags
 
@@ -122,8 +122,8 @@ output {
 ## Testing Your Changes
 
 1. Edit the configuration file
-2. Restart Logstash: `docker-compose restart logstash`
-3. Check logs for errors: `docker-compose logs logstash`
+2. Restart Logstash: `docker compose restart logstash`
+3. Check logs for errors: `docker compose logs logstash`
 4. Query Elasticsearch to verify your changes worked
 
 ## Logstash Filter Plugins Reference

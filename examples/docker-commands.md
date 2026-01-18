@@ -205,11 +205,16 @@ filter {
 }
 ```
 
-### Adjust Polling Interval
+### Reduce Data Volume
 
-In `logstash/pipeline/wikimedia.conf`:
+Edit `logstash/pipeline/wikimedia.conf`:
 ```
-schedule => { cron => "*/5 * * * * UTC"}  # Every 5 seconds instead of every second
+# Add filters to drop unwanted data
+filter {
+  if [bot] == true {
+    drop { }
+  }
+}
 ```
 
 ## Data Management

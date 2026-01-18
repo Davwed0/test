@@ -19,7 +19,7 @@ This environment contains:
 docker compose up -d
 
 # Or using Docker Compose v1
-docker-compose up -d
+docker compose up -d
 ```
 
 **Note**: First startup may take 2-3 minutes as services initialize and start collecting data.
@@ -94,10 +94,10 @@ GET wikipedia-changes-*/_search
 ### Useful Logstash Commands
 ```bash
 # View logs
-docker-compose logs -f logstash
+docker compose logs -f logstash
 
 # Restart a service
-docker-compose restart logstash
+docker compose restart logstash
 ```
 
 </details>
@@ -127,10 +127,10 @@ This is a real-time stream of all changes happening across Wikipedia projects wo
 ## Troubleshooting
 
 If something isn't working:
-1. Check container logs: `docker-compose logs [service-name]`
-2. Verify containers are running: `docker-compose ps`
-3. Restart everything: `docker-compose restart`
-4. Nuclear option: `docker-compose down -v && docker-compose up -d`
+1. Check container logs: `docker compose logs [service-name]`
+2. Verify containers are running: `docker compose ps`
+3. Restart everything: `docker compose restart`
+4. Nuclear option: `docker compose down -v && docker compose up -d`
 
 ## Resources
 
@@ -142,9 +142,9 @@ If something isn't working:
 
 When you're done:
 ```bash
-docker-compose down
+docker compose down
 # To also remove volumes and data:
-docker-compose down -v
+docker compose down -v
 ```
 
 ---
