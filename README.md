@@ -2,6 +2,8 @@
 
 Welcome to the ELK Stack hands-on learning environment! This setup uses real-time data from Wikipedia to help you learn Elasticsearch, Logstash, and Kibana.
 
+> **🚀 New here?** Check out the [Quick Start Guide](QUICKSTART.md) to get up and running in 5 minutes!
+
 ## What's Inside?
 
 This environment contains:
