@@ -2,20 +2,23 @@
 
 ## 🎯 Workshop Overview
 
-This workshop demonstrates how Python with Pandas and NumPy can dramatically simplify data workflows that are traditionally painful in Excel. We'll cover real-world business scenarios and show you how to go from hours of manual work to minutes of automated analysis.
+This workshop demonstrates how Python (with Pandas & NumPy) can dramatically simplify data workflows that are typically painful in Excel. We'll cover real-world business scenarios and show you how to automate repetitive tasks, handle large datasets, and create stunning visualizations.
 
-## 📋 What You'll Learn
+## 📊 What You'll Learn
 
-1. **Data Cleaning** - Handle messy data without manual editing
-2. **Data Transformation** - VLOOKUP alternatives that actually scale
-3. **Pivot Tables** - More powerful and reproducible analysis
-4. **Data Visualization** - Create publication-ready charts
-5. **Automation** - Run the same analysis on new data with one command
+| Excel Pain Point | Python Solution |
+|------------------|-----------------|
+| VLOOKUP nightmares | Simple `merge()` operations |
+| Slow with large files (100k+ rows) | Handle millions of rows effortlessly |
+| Manual copy-paste between sheets | Automated data pipelines |
+| Complex nested IF formulas | Clean, readable Python logic |
+| Pivot table limitations | Flexible `groupby()` aggregations |
+| Chart formatting struggles | Beautiful visualizations with matplotlib/seaborn |
 
 ## 🐳 Getting Started with Docker
 
 ### Prerequisites
-- Docker Desktop installed on your machine
+- Docker Desktop installed ([Download here](https://www.docker.com/products/docker-desktop))
 - No Python installation required!
 
 ### Quick Start
@@ -27,52 +30,63 @@ cd test
 git checkout python-pandas-workshop
 
 # Start the Jupyter environment
-docker-compose up
+docker-compose up --build
 
-# Open http://localhost:8888 in your browser
+# Open your browser to http://localhost:8888
 ```
 
 ## 📁 Repository Structure
 
 ```
-├── README.md
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
+├── Dockerfile                 # Python environment setup
+├── docker-compose.yml         # Container orchestration
+├── requirements.txt           # Python dependencies
 ├── data/
-│   └── sales_data.csv
+│   └── sample_sales_data.csv  # Sample dataset
 ├── notebooks/
-│   ├── 01_excel_pain_points.ipynb
-│   ├── 02_pandas_solutions.ipynb
-│   └── 03_data_visualization.ipynb
+│   ├── 01_excel_vs_pandas.ipynb    # Main comparison notebook
+│   ├── 02_data_cleaning.ipynb      # Data cleaning techniques
+│   └── 03_visualization.ipynb      # Data visualization
 └── scripts/
-    └── data_pipeline.py
+    └── data_pipeline.py       # Automated data processing
 ```
 
-## 🔥 Excel Pain Points We'll Solve
+## 🔥 Workshop Modules
 
-| Excel Problem | Pandas Solution |
-|---------------|-----------------|
-| VLOOKUP breaks with large datasets | `pd.merge()` handles millions of rows |
-| Manual copy-paste for data cleaning | `df.apply()` and string methods |
-| Pivot tables aren't reproducible | `df.pivot_table()` in code |
-| Charts require manual formatting | Matplotlib/Seaborn templates |
-| Can't handle files > 1 million rows | Pandas + chunking = unlimited |
+### Module 1: Excel vs Pandas Comparison
+- VLOOKUP vs `pd.merge()`
+- Nested IFs vs vectorized operations
+- Pivot Tables vs `groupby()`
 
-## 🚀 Workshop Modules
+### Module 2: Data Cleaning
+- Handling missing values
+- Data type conversions
+- String manipulations
 
-### Module 1: The Excel Nightmare
-See a real-world scenario where Excel falls short with sales data analysis.
+### Module 3: Data Visualization
+- Line charts, bar charts, scatter plots
+- Heatmaps and correlation matrices
+- Interactive dashboards
 
-### Module 2: Pandas to the Rescue
-Learn how to accomplish the same tasks in a fraction of the time.
+## 💡 Why Python for Business?
 
-### Module 3: Beautiful Visualizations
-Create charts that would take hours in Excel, in just a few lines of code.
+1. **Reproducibility**: Run the same analysis with one click
+2. **Scalability**: Handle datasets too large for Excel
+3. **Automation**: Schedule reports to run automatically
+4. **Collaboration**: Version control with Git
+5. **Career Growth**: #1 most in-demand skill for data roles
 
-## 📞 Support
+## 📚 Resources
 
-Having issues? Open an issue in this repository or reach out during the workshop.
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [NumPy Documentation](https://numpy.org/doc/)
+- [Matplotlib Gallery](https://matplotlib.org/stable/gallery/)
+- [Seaborn Gallery](https://seaborn.pydata.org/examples/)
 
----
-*Workshop created for Business Students - Making Data Analysis Accessible*
+## 🤝 Contributing
+
+Feel free to submit issues and pull requests!
+
+## 📄 License
+
+MIT License - feel free to use this for your own workshops!
