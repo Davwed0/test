@@ -1,4 +1,10 @@
-/* Custom styles for Quarto project */
+/* 
+ * Custom styles for Quarto project
+ * 
+ * These styles provide consistent typography and spacing
+ * across all pages in the project, complementing the
+ * default Quarto theme.
+ */
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
