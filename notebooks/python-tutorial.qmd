@@ -1,0 +1,143 @@
+---
+title: "Python Tutorial Notebook"
+format: html
+jupyter: python3
+---
+
+## Python Basics
+
+This notebook covers fundamental Python concepts with executable examples.
+
+## Variables and Data Types
+
+```{python}
+# Different data types
+integer_var = 42
+float_var = 3.14
+string_var = "Hello, Quarto!"
+boolean_var = True
+list_var = [1, 2, 3, 4, 5]
+
+print(f"Integer: {integer_var}")
+print(f"Float: {float_var}")
+print(f"String: {string_var}")
+print(f"Boolean: {boolean_var}")
+print(f"List: {list_var}")
+```
+
+## Control Structures
+
+### If-Else Statements
+
+```{python}
+temperature = 25
+
+if temperature > 30:
+    print("It's hot!")
+elif temperature > 20:
+    print("It's pleasant!")
+else:
+    print("It's cold!")
+```
+
+### Loops
+
+```{python}
+# For loop
+print("For loop example:")
+for i in range(5):
+    print(f"Iteration {i}")
+
+# While loop
+print("\nWhile loop example:")
+counter = 0
+while counter < 3:
+    print(f"Counter: {counter}")
+    counter += 1
+```
+
+## Functions
+
+```{python}
+def greet(name):
+    """Function to greet a person"""
+    return f"Hello, {name}! Welcome to Python."
+
+def calculate_area(radius):
+    """Calculate the area of a circle"""
+    import math
+    return math.pi * radius ** 2
+
+# Test the functions
+print(greet("Quarto User"))
+print(f"Area of circle with radius 5: {calculate_area(5):.2f}")
+```
+
+## List Comprehensions
+
+```{python}
+# Traditional approach
+squares = []
+for i in range(10):
+    squares.append(i**2)
+
+print(f"Squares (traditional): {squares}")
+
+# List comprehension
+squares_comp = [i**2 for i in range(10)]
+print(f"Squares (comprehension): {squares_comp}")
+
+# With condition
+even_squares = [i**2 for i in range(10) if i % 2 == 0]
+print(f"Even squares: {even_squares}")
+```
+
+## Working with Dictionaries
+
+```{python}
+# Create a dictionary
+person = {
+    'name': 'Alice',
+    'age': 30,
+    'city': 'New York',
+    'skills': ['Python', 'Data Analysis', 'Machine Learning']
+}
+
+print(f"Name: {person['name']}")
+print(f"Age: {person['age']}")
+print(f"Skills: {', '.join(person['skills'])}")
+
+# Dictionary comprehension
+squared_dict = {x: x**2 for x in range(1, 6)}
+print(f"\nSquared dictionary: {squared_dict}")
+```
+
+## String Operations
+
+```{python}
+text = "  Quarto is Amazing!  "
+
+print(f"Original: '{text}'")
+print(f"Stripped: '{text.strip()}'")
+print(f"Lower case: '{text.lower()}'")
+print(f"Upper case: '{text.upper()}'")
+print(f"Replaced: '{text.replace('Amazing', 'Powerful')}'")
+
+# String formatting
+name = "Python"
+version = 3.11
+print(f"\n{name} {version} is the latest version")
+```
+
+## Summary
+
+This tutorial covered:
+
+- Variables and data types
+- Control structures (if-else, loops)
+- Functions
+- List comprehensions
+- Dictionaries
+- String operations
+
+Keep practicing to master Python!

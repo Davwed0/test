@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Quarto Notebooks and Slides"
+  navbar:
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Notebooks"
+        menu:
+          - text: "Data Analysis"
+            file: notebooks/data-analysis.qmd
+          - text: "Python Tutorial"
+            file: notebooks/python-tutorial.qmd
+      - text: "Slides"
+        file: slides/presentation.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

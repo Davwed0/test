@@ -1,0 +1,44 @@
+---
+title: "Welcome to Quarto Notebooks and Slides"
+format: html
+---
+
+## Overview
+
+This project demonstrates the use of Quarto for creating:
+
+- **Interactive Notebooks**: Computational notebooks with executable code
+- **Presentation Slides**: Professional slides for presentations
+
+## Getting Started
+
+### Notebooks
+
+Explore our sample notebooks:
+
+- [Data Analysis Notebook](notebooks/data-analysis.qmd) - Learn data analysis techniques
+- [Python Tutorial](notebooks/python-tutorial.qmd) - Python basics and examples
+
+### Slides
+
+View our presentation slides:
+
+- [Sample Presentation](slides/presentation.qmd) - A demonstration of Quarto slides
+
+## About Quarto
+
+Quarto is an open-source scientific and technical publishing system built on Pandoc. It allows you to create dynamic content with Python, R, Julia, and Observable.
+
+## Building the Project
+
+To render this project, run:
+
+```bash
+quarto render
+```
+
+To preview the project, run:
+
+```bash
+quarto preview
+```
