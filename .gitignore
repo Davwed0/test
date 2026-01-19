@@ -1,0 +1,7 @@
+/.quarto/
+/_site/
+/.vscode/
+__pycache__/
+*.pyc
+.DS_Store
+*.deb

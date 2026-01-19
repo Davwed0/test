@@ -1,0 +1,270 @@
+---
+title: "Introduction to Quarto"
+subtitle: "Creating Notebooks and Presentations"
+author: "Quarto User"
+date: today
+format:
+  revealjs:
+    theme: sky
+    transition: slide
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "Quarto Presentation"
+---
+
+## Welcome {.title}
+
+Welcome to this presentation about Quarto!
+
+::: {.incremental}
+- Quarto is a scientific publishing system
+- Create dynamic content with code
+- Support for multiple languages
+- Beautiful presentations and documents
+:::
+
+## What is Quarto?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Features:**
+
+- Write in Markdown
+- Execute code blocks
+- Create interactive content
+- Multiple output formats
+:::
+
+::: {.column width="50%"}
+**Supported Languages:**
+
+- Python
+- R
+- Julia
+- Observable JS
+:::
+
+::::
+
+## Code Execution {.smaller}
+
+Quarto can execute code and display results:
+
+```{python}
+#| echo: true
+#| output-location: fragment
+
+# Simple Python example
+import numpy as np
+
+data = np.random.randn(5)
+print(f"Random data: {data}")
+print(f"Mean: {data.mean():.3f}")
+print(f"Std: {data.std():.3f}")
+```
+
+## Data Visualization
+
+Let's create a quick visualization:
+
+```{python}
+#| echo: true
+#| fig-align: center
+
+import matplotlib.pyplot as plt
+
+# Create sample data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create plot
+plt.figure(figsize=(10, 4))
+plt.plot(x, y1, label='sin(x)', linewidth=2)
+plt.plot(x, y2, label='cos(x)', linewidth=2)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Trigonometric Functions')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+## Output Formats
+
+Quarto supports multiple output formats:
+
+::: {.incremental}
+1. **HTML** - Interactive web pages
+2. **PDF** - Print-ready documents
+3. **RevealJS** - Interactive presentations
+4. **PowerPoint** - Microsoft presentations
+5. **Word** - Microsoft Word documents
+6. **Beamer** - LaTeX presentations
+:::
+
+## Markdown Features {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Text Formatting:**
+
+- *Italic text*
+- **Bold text**
+- ***Bold and italic***
+- ~~Strikethrough~~
+- `Code inline`
+:::
+
+::: {.column width="50%"}
+**Lists and More:**
+
+1. Numbered lists
+2. With items
+   - Nested bullets
+   - Sub-items
+
+> Blockquotes for emphasis
+:::
+
+::::
+
+## Math Support
+
+Quarto supports LaTeX math equations:
+
+**Inline math:** $E = mc^2$
+
+**Display math:**
+
+$$
+\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+**Statistical formulas:**
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+$$
+
+## Callout Blocks
+
+::: {.callout-note}
+## Note
+This is a note callout block - useful for additional information.
+:::
+
+::: {.callout-tip}
+## Tip
+Use callout blocks to highlight important content!
+:::
+
+::: {.callout-warning}
+## Warning
+Be careful with this content!
+:::
+
+## Advanced Features {.smaller}
+
+::: {.incremental}
+- **Tabsets**: Organize content in tabs
+- **Columns**: Multi-column layouts
+- **Fragments**: Progressive reveal
+- **Animations**: Smooth transitions
+- **Themes**: Customizable appearance
+- **Interactive plots**: With Observable/Plotly
+- **Cross-references**: Link to figures and tables
+:::
+
+## Workflow
+
+```{mermaid}
+graph LR
+    A[Write .qmd files] --> B[Quarto Render]
+    B --> C{Output Format}
+    C --> D[HTML]
+    C --> E[PDF]
+    C --> F[Slides]
+    C --> G[Word/PPTX]
+```
+
+## Getting Started
+
+To create your own Quarto project:
+
+```bash
+# Create a new project
+quarto create-project myproject
+
+# Render a document
+quarto render document.qmd
+
+# Preview with live reload
+quarto preview document.qmd
+
+# Render to specific format
+quarto render document.qmd --to pdf
+```
+
+## Collaboration {.smaller}
+
+Quarto works great with:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Development Tools:**
+
+- VS Code
+- RStudio
+- Jupyter
+- Any text editor
+:::
+
+::: {.column width="50%"}
+**Publishing Platforms:**
+
+- GitHub Pages
+- Netlify
+- Quarto Pub
+- Posit Connect
+:::
+
+::::
+
+## Key Benefits
+
+::: {.incremental}
+1. **Reproducible** - Code and narrative together
+2. **Flexible** - Multiple languages and outputs
+3. **Professional** - Publication-quality output
+4. **Collaborative** - Works with Git/GitHub
+5. **Open Source** - Free and community-driven
+:::
+
+## Resources
+
+Learn more about Quarto:
+
+- 📚 [Official Documentation](https://quarto.org)
+- 💻 [GitHub Repository](https://github.com/quarto-dev/quarto-cli)
+- 🎓 [Quarto Gallery](https://quarto.org/docs/gallery/)
+- 💬 [Community Forum](https://github.com/quarto-dev/quarto-cli/discussions)
+
+## Thank You! {.title}
+
+::: {.r-fit-text}
+Questions?
+:::
+
+**Contact:**
+
+- Website: [quarto.org](https://quarto.org)
+- GitHub: [@quarto-dev](https://github.com/quarto-dev)
+
+::: {.notes}
+Thank you for attending this presentation. Feel free to reach out with any questions!
+:::

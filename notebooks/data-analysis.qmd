@@ -1,0 +1,76 @@
+---
+title: "Data Analysis with Python"
+format: html
+jupyter: python3
+---
+
+## Introduction
+
+This notebook demonstrates basic data analysis techniques using Python.
+
+## Setup
+
+First, let's import the necessary libraries:
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+print("Libraries imported successfully!")
+```
+
+## Data Generation
+
+Let's create some sample data:
+
+```{python}
+# Generate random data
+np.random.seed(42)
+data = {
+    'x': np.arange(1, 51),
+    'y': np.random.randn(50).cumsum() + 100
+}
+df = pd.DataFrame(data)
+
+# Display first few rows
+print("Sample Data:")
+print(df.head())
+```
+
+## Data Visualization
+
+Now let's visualize the data:
+
+```{python}
+#| label: fig-line
+#| fig-cap: "Time series plot of sample data"
+
+plt.figure(figsize=(10, 6))
+plt.plot(df['x'], df['y'], marker='o', linestyle='-', linewidth=2)
+plt.xlabel('X Value')
+plt.ylabel('Y Value')
+plt.title('Sample Time Series Data')
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+## Statistical Summary
+
+Let's compute some basic statistics:
+
+```{python}
+print("Statistical Summary:")
+print(df.describe())
+```
+
+## Conclusion
+
+This notebook demonstrated:
+
+- Data generation with NumPy
+- Data manipulation with Pandas
+- Data visualization with Matplotlib
+- Basic statistical analysis
+
+You can extend this notebook with more advanced analyses!
