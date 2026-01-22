@@ -9,7 +9,7 @@ This repository contains a single, self-contained bash script that sets up a rea
 1. Creates a temporary learning environment at `~/grep-lab-playground`
 2. Downloads a real Linux kernel git repository for authentic git log analysis
 3. Generates realistic sample data (syslog files, network scans, user activity logs)
-4. Creates 5 progressive difficulty levels with 15-25 hands-on challenges
+4. Creates 5 progressive difficulty levels with 25 hands-on challenges
 5. Provides complete solutions for self-validation
 
 ## 🚀 Quick Start
