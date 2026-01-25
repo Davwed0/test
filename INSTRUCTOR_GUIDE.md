@@ -80,6 +80,8 @@ Students will practice:
 - **validate_config.sh**: Wrong grep pattern for export statements
 - **process_manager.sh**: Wrong signal (kill -9 instead of -TERM)
 
+**Note**: The original Werkzeug version conflict bug has been removed as Flask and Werkzeug have been updated to secure, compatible versions (Flask 2.3.3, Werkzeug 2.3.7). The simulation now uses patched versions to address security vulnerabilities while maintaining all intended Unix learning objectives.
+
 ## Setup Instructions
 
 ### Prerequisites
