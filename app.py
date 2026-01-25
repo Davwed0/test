@@ -16,16 +16,28 @@ from psycopg2 import pool
 # Initialize Flask app
 app = Flask(__name__)
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/app.log'),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
+# Configure logging - uses syslog for production
+import logging.handlers
+
+# Set up syslog logging (production standard)
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Try to use syslog if available, fallback to file
+try:
+    syslog_handler = logging.handlers.SysLogHandler(address='/dev/log')
+    syslog_handler.setFormatter(logging.Formatter('megabank-api[%(process)d]: %(levelname)s - %(message)s'))
+    logger.addHandler(syslog_handler)
+except Exception:
+    # Fallback to file logging
+    file_handler = logging.FileHandler('/var/log/megabank/app.log')
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(file_handler)
+
+# Also log to stdout for debugging
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logger.addHandler(console_handler)
 
 # Database configuration
 DB_CONFIG = {

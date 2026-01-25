@@ -1,0 +1,28 @@
+[Unit]
+Description=MegaBank Core Banking API Service
+After=network.target postgresql.service
+Requires=postgresql.service
+Documentation=https://docs.megabank.internal/api
+
+[Service]
+Type=simple
+User=bankapp
+Group=bankapp
+WorkingDirectory=/opt/megabank
+# BUG INTENTIONAL: Wrong path to script
+ExecStart=/usr/bin/python3 /opt/megabank/banking-api.py
+EnvironmentFile=/etc/megabank/database.conf
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=megabank-api
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+# BUG INTENTIONAL: Wrong file permissions
+ReadWritePaths=/var/log/megabank /var/run/megabank
+
+[Install]
+WantedBy=multi-user.target

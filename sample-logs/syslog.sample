@@ -1,0 +1,54 @@
+Jan 25 06:00:01 prod-banking01 systemd[1]: Started Session 1234 of user root.
+Jan 25 06:15:02 prod-banking01 CRON[12345]: (root) CMD (test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily ))
+Jan 25 06:25:01 prod-banking01 systemd[1]: Starting Daily apt download activities...
+Jan 25 06:25:02 prod-banking01 systemd[1]: apt-daily.service: Succeeded.
+Jan 25 07:30:00 prod-banking01 systemd[1]: Stopping MegaBank Core Banking API Service...
+Jan 25 07:30:01 prod-banking01 megabank-api[5678]: INFO - Received SIGTERM, shutting down gracefully
+Jan 25 07:30:02 prod-banking01 systemd[1]: megabank-api.service: Succeeded.
+Jan 25 07:30:05 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 07:30:06 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=203/EXEC
+Jan 25 07:30:06 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:30:06 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:30:16 prod-banking01 systemd[1]: megabank-api.service: Scheduled restart job, restart counter is at 1.
+Jan 25 07:30:16 prod-banking01 systemd[1]: Stopped MegaBank Core Banking API Service.
+Jan 25 07:30:16 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 07:30:17 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=203/EXEC
+Jan 25 07:30:17 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:30:17 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:30:27 prod-banking01 systemd[1]: megabank-api.service: Scheduled restart job, restart counter is at 2.
+Jan 25 07:30:27 prod-banking01 systemd[1]: Stopped MegaBank Core Banking API Service.
+Jan 25 07:30:27 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 07:30:28 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=203/EXEC
+Jan 25 07:30:28 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:30:28 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:30:38 prod-banking01 systemd[1]: megabank-api.service: Scheduled restart job, restart counter is at 3.
+Jan 25 07:30:38 prod-banking01 systemd[1]: Stopped MegaBank Core Banking API Service.
+Jan 25 07:30:38 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 07:30:39 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=203/EXEC
+Jan 25 07:30:39 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:30:39 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:30:49 prod-banking01 systemd[1]: megabank-api.service: Scheduled restart job, restart counter is at 4.
+Jan 25 07:30:49 prod-banking01 systemd[1]: Stopped MegaBank Core Banking API Service.
+Jan 25 07:30:49 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 07:30:50 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=203/EXEC
+Jan 25 07:30:50 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:30:50 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:31:00 prod-banking01 systemd[1]: megabank-api.service: Start request repeated too quickly.
+Jan 25 07:31:00 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 07:31:00 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.
+Jan 25 07:35:12 prod-banking01 sshd[15678]: Accepted publickey for devops from 10.0.1.50 port 52341 ssh2: RSA SHA256:abc123def456
+Jan 25 07:35:12 prod-banking01 sshd[15678]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jan 25 07:35:45 prod-banking01 sudo[15789]: devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/systemctl status megabank-api
+Jan 25 07:36:20 prod-banking01 sudo[15890]: devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/journalctl -u megabank-api
+Jan 25 07:40:00 prod-banking01 postgres[23456]: [23456] LOG:  could not receive data from client: Connection reset by peer
+Jan 25 07:40:00 prod-banking01 postgres[23456]: [23456] LOG:  unexpected EOF on client connection with open transaction
+Jan 25 07:45:00 prod-banking01 kernel: [98765.123456] TCP: request_sock_TCP: Possible SYN flooding on port 8080. Sending cookies.
+Jan 25 08:00:01 prod-banking01 CRON[16789]: (root) CMD (if test -x /usr/sbin/anacron && test -x /etc/cron.hourly; then anacron -s)
+Jan 25 08:15:32 prod-banking01 sudo[17890]: devops : TTY=pts/0 ; PWD=/opt/megabank ; USER=root ; COMMAND=/bin/systemctl start megabank-api
+Jan 25 08:15:33 prod-banking01 systemd[1]: Starting MegaBank Core Banking API Service...
+Jan 25 08:15:34 prod-banking01 megabank-api[18901]: INFO - Starting MegaBank Core Banking API...
+Jan 25 08:15:34 prod-banking01 megabank-api[18901]: ERROR - Failed to initialize database pool: connection to server at "localhost" (127.0.0.1), port 5432 failed: fe_sendauth: no password supplied
+Jan 25 08:15:34 prod-banking01 megabank-api[18901]: ERROR - Failed to connect to database. Exiting...
+Jan 25 08:15:34 prod-banking01 systemd[1]: megabank-api.service: Main process exited, code=exited, status=1/FAILURE
+Jan 25 08:15:34 prod-banking01 systemd[1]: megabank-api.service: Failed with result 'exit-code'.
+Jan 25 08:15:34 prod-banking01 systemd[1]: Failed to start MegaBank Core Banking API Service.

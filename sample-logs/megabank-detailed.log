@@ -1,0 +1,35 @@
+2024-01-25 07:30:05.234567 prod-banking01 megabank-api[5678]: Received shutdown signal
+2024-01-25 07:30:05.456789 prod-banking01 megabank-api[5678]: Closing database connections
+2024-01-25 07:30:05.678901 prod-banking01 megabank-api[5678]: Shutdown complete
+2024-01-25 08:15:33.123456 prod-banking01 megabank-api[18901]: Starting MegaBank Core Banking API v2.3.1
+2024-01-25 08:15:33.345678 prod-banking01 megabank-api[18901]: Loading configuration from /etc/megabank/database.conf
+2024-01-25 08:15:33.567890 prod-banking01 megabank-api[18901]: Configuration loaded: DB_HOST=localhost, DB_PORT=5432, DB_NAME=banking_db
+2024-01-25 08:15:33.789012 prod-banking01 megabank-api[18901]: Initializing database connection pool
+2024-01-25 08:15:34.012345 prod-banking01 megabank-api[18901]: ERROR: Database connection failed - FATAL: password authentication failed for user "bank_user"
+2024-01-25 08:15:34.123456 prod-banking01 megabank-api[18901]: ERROR: Connection details - host=localhost port=5432 database=banking_db user=bank_user
+2024-01-25 08:15:34.234567 prod-banking01 megabank-api[18901]: CRITICAL: Cannot start without database connection
+2024-01-25 08:15:34.345678 prod-banking01 megabank-api[18901]: Exiting with error code 1
+2024-01-25 08:20:15.456789 prod-banking01 megabank-api[19123]: Starting MegaBank Core Banking API v2.3.1
+2024-01-25 08:20:15.567890 prod-banking01 megabank-api[19123]: Loading configuration from /etc/megabank/database.conf
+2024-01-25 08:20:15.678901 prod-banking01 megabank-api[19123]: Configuration loaded: DB_HOST=localhost, DB_PORT=5432, DB_NAME=banking_db
+2024-01-25 08:20:15.789012 prod-banking01 megabank-api[19123]: Initializing database connection pool
+2024-01-25 08:20:15.890123 prod-banking01 megabank-api[19123]: INFO: Database connection pool initialized successfully
+2024-01-25 08:20:15.901234 prod-banking01 megabank-api[19123]: INFO: Starting Flask application on port 8080
+2024-01-25 08:20:16.012345 prod-banking01 megabank-api[19123]: ERROR: Failed to bind to port 8080 - Address already in use
+2024-01-25 08:20:16.123456 prod-banking01 megabank-api[19123]: ERROR: Another process is using port 8080
+2024-01-25 08:20:16.234567 prod-banking01 megabank-api[19123]: CRITICAL: Cannot start application - port conflict
+2024-01-25 08:20:16.345678 prod-banking01 megabank-api[19123]: Exiting with error code 1
+2024-01-25 08:25:00.456789 prod-banking01 megabank-api[19456]: Starting MegaBank Core Banking API v2.3.1
+2024-01-25 08:25:00.567890 prod-banking01 megabank-api[19456]: Loading configuration from /etc/megabank/database.conf
+2024-01-25 08:25:00.678901 prod-banking01 megabank-api[19456]: Configuration loaded: DB_HOST=localhost, DB_PORT=5432, DB_NAME=banking_db
+2024-01-25 08:25:00.789012 prod-banking01 megabank-api[19456]: Initializing database connection pool
+2024-01-25 08:25:00.890123 prod-banking01 megabank-api[19456]: INFO: Database connection pool initialized successfully
+2024-01-25 08:25:00.901234 prod-banking01 megabank-api[19456]: INFO: Starting Flask application on port 8080
+2024-01-25 08:25:01.012345 prod-banking01 megabank-api[19456]: INFO: Application started successfully on 0.0.0.0:8080
+2024-01-25 08:25:01.123456 prod-banking01 megabank-api[19456]: INFO: Ready to accept connections
+2024-01-25 08:30:45.234567 prod-banking01 megabank-api[19456]: INFO: Health check request from 10.0.2.100
+2024-01-25 08:30:45.345678 prod-banking01 megabank-api[19456]: INFO: Health check passed - database: connected
+2024-01-25 08:35:12.456789 prod-banking01 megabank-api[19456]: INFO: API request: GET /api/accounts/ACC001/balance from 10.0.2.100
+2024-01-25 08:35:12.567890 prod-banking01 megabank-api[19456]: INFO: Query executed successfully - returned 1 row
+2024-01-25 08:40:23.678901 prod-banking01 megabank-api[19456]: WARNING: Slow query detected - execution time: 2.34s
+2024-01-25 08:40:23.789012 prod-banking01 megabank-api[19456]: WARNING: Query: SELECT * FROM accounts WHERE account_number = 'ACC003'
