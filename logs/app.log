@@ -1,0 +1,16 @@
+2024-01-22 19:45:23,123 - __main__ - INFO - Starting MegaBank Core Banking API...
+2024-01-22 19:45:23,145 - __main__ - INFO - Database connection pool initialized successfully
+2024-01-22 19:45:23,156 - __main__ - INFO - Starting API server on port 8080
+2024-01-22 19:45:23,234 - werkzeug - INFO -  * Running on all addresses (0.0.0.0)
+2024-01-22 19:45:23,234 - werkzeug - INFO -  * Running on http://127.0.0.1:8080
+2024-01-22 19:45:23,234 - werkzeug - INFO -  * Running on http://192.168.1.100:8080
+2024-01-22 19:45:23,235 - werkzeug - INFO - Press CTRL+C to quit
+2024-01-22 19:47:15,456 - werkzeug - INFO - 10.0.0.5 - - [22/Jan/2024 19:47:15] "GET /health HTTP/1.1" 200 -
+2024-01-22 19:47:23,789 - werkzeug - INFO - 10.0.0.5 - - [22/Jan/2024 19:47:23] "GET /api/accounts/ACC001/balance HTTP/1.1" 200 -
+2024-01-22 19:52:01,234 - __main__ - INFO - Transaction 1001 created successfully
+2024-01-22 20:15:45,123 - werkzeug - INFO - 10.0.0.5 - - [22/Jan/2024 20:15:45] "GET /health HTTP/1.1" 200 -
+2024-01-22 22:30:12,456 - __main__ - INFO - Shutting down gracefully...
+
+2024-01-25 07:45:03,123 - __main__ - INFO - Starting MegaBank Core Banking API...
+2024-01-25 07:45:03,145 - __main__ - ERROR - Failed to initialize database pool: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "bank_user"
+2024-01-25 07:45:03,146 - __main__ - ERROR - Failed to connect to database. Exiting...
