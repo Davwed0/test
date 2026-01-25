@@ -1,0 +1,140 @@
+================================================================================
+    MEGABANK UNIX/LINUX ADMINISTRATION CHALLENGE - DEPLOYMENT PACKAGE
+================================================================================
+
+PROJECT TYPE: Educational Unix/Linux Troubleshooting Simulation
+TARGET AUDIENCE: Students learning Unix/Linux system administration
+DIFFICULTY: Intermediate
+TIME REQUIRED: 30-60 minutes
+
+================================================================================
+                              QUICK START
+================================================================================
+
+FOR INSTRUCTORS:
+1. Clone this repository to student VMs
+2. Ensure prerequisites are installed (Python3, PostgreSQL, dos2unix)
+3. Point students to SCENARIO.md
+4. Keep INSTRUCTOR_GUIDE.md hidden from students
+
+FOR STUDENTS:
+1. Read SCENARIO.md for your mission
+2. Run ./diagnose.sh to see what's broken
+3. Use Unix command-line tools to fix all issues
+4. Get the banking application running successfully
+
+================================================================================
+                           FILE GUIDE
+================================================================================
+
+📄 STUDENT FILES (Share These):
+   SCENARIO.md              - Mission briefing - READ THIS FIRST!
+   README.md                - Basic overview
+   UNIX_EXERCISES.md        - Unix command examples and hints
+   diagnose.sh              - Diagnostic helper tool
+
+📄 INSTRUCTOR FILES (Keep Private):
+   INSTRUCTOR_GUIDE.md      - Complete solutions and teaching notes
+   VM_SETUP.md              - Detailed deployment instructions
+   FIX_ALL.sh              - Auto-fix script for testing only
+   PROJECT_README.md        - Comprehensive project documentation
+
+📁 APPLICATION FILES (Contains Bugs):
+   app.py                   - Banking API (this is correct)
+   start_app.sh            - Startup script (BUGGY)
+   config/                  - Configuration files (BUGGY)
+   database/                - Database scripts (BUGGY)
+   monitoring/              - Monitoring scripts (BUGGY)
+   tools/                   - Utility scripts (optional challenges)
+   logs/                    - Sample log files
+   docs/                    - Documentation
+
+================================================================================
+                        BUGS INTENTIONALLY PLACED
+================================================================================
+
+Students must fix 8 Unix-related issues:
+
+1. File Permissions       - Scripts not executable (chmod needed)
+2. DOS Line Endings       - CRLF instead of LF (dos2unix needed)
+3. Wrong Python Command   - Uses 'python' not 'python3' (sed needed)
+4. Database Password      - Missing '!' character (sed needed)
+5. SQL Syntax Errors      - Missing ; and ) (sed needed)
+6. Wrong File Path        - Incorrect path (sed needed)
+7. Variable Name Error    - Typo in variable (sed/grep needed)
+8. Wrong Port Number      - Checking wrong port (sed needed)
+
+ALL require Unix command-line tools to diagnose and fix!
+
+================================================================================
+                          UNIX SKILLS COVERED
+================================================================================
+
+✓ File permissions (chmod, ls -l)
+✓ Text format conversion (dos2unix, sed)
+✓ Text search (grep, find)
+✓ Text editing (sed, awk)
+✓ Environment variables (source, export, echo)
+✓ Process management (ps, pgrep, kill, lsof)
+✓ Shell scripting (bash debugging)
+✓ System tools (file, nc, netcat)
+✓ Log analysis (tail, grep, awk)
+
+================================================================================
+                         SYSTEM REQUIREMENTS
+================================================================================
+
+VM/System needs:
+- Linux (Ubuntu 20.04+ recommended)
+- Python 3.8+
+- PostgreSQL 12+
+- dos2unix
+- netcat (nc)
+- Standard Unix tools (grep, sed, awk, find, etc.)
+
+Quick install:
+sudo apt-get update
+sudo apt-get install -y python3 python3-pip postgresql dos2unix netcat curl
+
+================================================================================
+                            SUCCESS CRITERIA
+================================================================================
+
+Students succeed when:
+✓ Application starts without errors
+✓ Database connects successfully  
+✓ Health check responds: curl http://localhost:8080/health
+✓ All API tests pass: ./test_api.sh
+✓ Solution is documented
+
+================================================================================
+                       DEPLOYMENT CHECKLIST
+================================================================================
+
+Before Class:
+□ Clone repo to each student VM
+□ Install prerequisites (Python3, PostgreSQL, dos2unix)
+□ Start PostgreSQL service
+□ Verify bugs are present (start_app.sh not executable, has CRLF)
+□ Hide or remove INSTRUCTOR_GUIDE.md from student view
+□ Test that ./start_app.sh fails with expected errors
+
+During Class:
+□ Brief students on scenario (5 min)
+□ Set time limit (30-60 min)
+□ Provide progressive hints if needed
+□ Monitor student progress
+
+After Class:
+□ Review solutions together
+□ Share INSTRUCTOR_GUIDE.md
+□ Discuss Unix best practices
+
+================================================================================
+                            READY TO DEPLOY! 🚀
+================================================================================
+
+This package is complete and ready for classroom use. Simply copy to student
+VMs and let them start troubleshooting!
+
+Good luck to your students!
